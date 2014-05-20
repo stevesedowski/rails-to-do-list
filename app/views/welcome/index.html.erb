@@ -1,0 +1,15 @@
+<div ng-controller="TodosCtrl">
+  <h1 align='center'>What Do I Need To Do?</h1>
+
+  <form ng-submit="addTodo($event)">
+    <input type="text" class="form-control" ng-model="nextTodo" placeholder="Add a todo...">
+  </form>
+
+  <div class="todos" ng-repeat="todo in todos">
+    <span ng-class="{complete: todo.complete}">
+      <input type="checkbox" ng-click="toggleComplete(todo)" ng-model="todo.complete"> 
+      {{ todo.title }} 
+    </span>
+    <span class="delete" ng-click="deleteTodo($index, todo)">x</span>
+  </div>
+</div>
